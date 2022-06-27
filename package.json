@@ -1,0 +1,48 @@
+{
+  "name": "digiclicker-desktop",
+  "version": "0.5.0",
+  "description": "DigiClicker Desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Listanon/Digiclicker-desktop.git"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ./",
+    "restore-src": "git restore --source=HEAD --staged --worktree -- src/Digiclicker-master && git clean -x -f -- src/Digiclicker-master",
+    "dist:32": "npm run restore-src && electron-builder --ia32",
+    "dist:64": "npm run restore-src && electron-builder --x64 -c.artifactName=${productName}-64bit-setup-${version}.${ext}",
+    "win": "electron-builder --windows portable",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Listanon",
+    "email": "desktop@pokeclicker.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.5",
+    "discord-rpc": "^4.0.1",
+    "electron-updater": "^4.3.9"
+  },
+  "devDependencies": {
+    "electron": "13.1.5",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "productName": "DigiClicker",
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "win": {
+      "requestedExecutionLevel": "highestAvailable"
+    },
+    "linux": {
+      "category": "Game",
+      "icon": "icon_512x512.png"
+    },
+    "deb": {},
+    "appId": "digiclicker.desktop"
+  }
+}
