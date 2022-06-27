@@ -9,5 +9,3 @@ A web wrapper for Digiclicker
 - Works offline (after first run, once initial download completed)
 - Auto download updates
 - Discord rich presence (customizable)
-
-![](https://i.imgur.com/5QQfoiZ.png)
